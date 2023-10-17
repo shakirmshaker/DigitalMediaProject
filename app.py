@@ -153,10 +153,6 @@ def main():
     st.bar_chart(feature_importance_df)
 
     
-
-
-    
-    
 # Run the app
 if __name__ == "__main__":
     main()
