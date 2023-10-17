@@ -103,41 +103,41 @@ def main():
         col1, col2 = st.columns(2)    
 
         with col1:
-            st.subheader(f'Contract')
+            st.subheader(f'Contract', help = 'The contract term of the customer (Month-to-month, One year, Two year)')
             st.write(Contract)
 
-            st.subheader(f'DeviceProtection')
+            st.subheader(f'DeviceProtection',  help = 'Whether the customer has device protection or not (Yes, No, No internet service)')
             st.write(DeviceProtection)
 
-            st.subheader(f'MonthlyCharges')
+            st.subheader(f'MonthlyCharges',  help = 'The amount charged to the customer monthly')
             st.write(str(MonthlyCharges))
 
-            st.subheader(f'OnlineSecurity')
+            st.subheader(f'OnlineSecurity',  help = 'Whether the customer has online security or not (Yes, No, No internet service)')
             st.write(OnlineSecurity)
 
-            st.subheader(f'PaymentMethod')
+            st.subheader(f'PaymentMethod', help = 'The customer\'s payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic))')
             st.write(PaymentMethod)
 
-            st.subheader(f'StreamingMovies')
+            st.subheader(f'StreamingMovies', help = 'Whether the customer has streaming movies or not (Yes, No, No internet service)')
             st.write(StreamingMovies)
 
         with col2:
-            st.subheader(f'InternetService')
+            st.subheader(f'InternetService', help = 'Customer\'s internet service provider (DSL, Fiber optic, No)')
             st.write(InternetService)
 
-            st.subheader(f'MultipleLines')
+            st.subheader(f'MultipleLines', help = 'Whether the customer has multiple lines or not (Yes, No, No phone service)')
             st.write(MultipleLines)
 
-            st.subheader(f'OnlineBackup')
+            st.subheader(f'OnlineBackup', help = 'Whether the customer has online backup or not (Yes, No, No internet service)')
             st.write(OnlineBackup)
 
-            st.subheader(f'PaperlessBilling')
+            st.subheader(f'PaperlessBilling', help = 'Whether the customer has paperless billing or not (Yes, No)')
             st.write(PaperlessBilling)
             
-            st.subheader(f'PhoneService')
+            st.subheader(f'PhoneService', help = 'Whether the customer has a phone service or not (Yes, No)')
             st.write(PhoneService)
             
-            st.subheader(f'TechSupport')
+            st.subheader(f'TechSupport', help = 'Whether the customer has tech support or not (Yes, No, No internet service)')
             st.write(TechSupport)
 
     st.header('Model information')
