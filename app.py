@@ -4,14 +4,14 @@ import pickle
 from faker import Faker
 import time
 
-# Load your machine learning model
+# Function to load the machine learning model from a pickled file
 @st.cache_data
 def load_model():
     with open('models/mlModel.pkl', 'rb') as file:
         model = pickle.load(file)
     return model
 
-# Load your customer data
+# Function to load the customer data
 @st.cache_data
 def load_data():    
     X_test = pd.read_csv('data/test_data/X_test.csv')
@@ -19,12 +19,12 @@ def load_data():
     data = pd.read_csv('data/raw_data/TelcoCustomerChurn.csv')
     return X_test, y_test, data
 
-# Predict churn probability
+# Function to predict churn probability for a customer
 def predict_churn(model, customer_data):
     probability = model.predict_proba(customer_data)[:, 1]
     return probability
 
-# Main app
+# Main application function
 def main():
     st.sidebar.title('Customer Churn Prediction')
     
@@ -39,7 +39,6 @@ def main():
     
     # Select a customer    
     customer_name = st.sidebar.selectbox('Select a customer', st.session_state.customer_names)
-    #c.sidebar.image('test.jpeg')
     customer_idx = st.session_state.customer_names.index(customer_name)
     customer_data = X_test.iloc[customer_idx].to_frame().T
     customer_id = customer_data['CustomerID'][customer_idx]    
@@ -49,13 +48,11 @@ def main():
     
     # Predict and display churn probability
     probability = predict_churn(model, customer_data_for_prediction)[0]
-
-    probability = round(probability*100, 2)
+    probability = round(probability * 100, 2)
     
     # Display customer profile
     st.title(f'{customer_name}')
     st.write('---')
-
 
     st.header('Churn Probability')
     st.header(' ')
@@ -69,7 +66,7 @@ def main():
             st.warning(f'Estimate: {probability} %')
         if probability > 70:
             st.error(f'Estimate: {probability} %')
-        st.toast('Succesfully predicted customer churn!')
+        st.toast('Successfully predicted customer churn!')
             
         
     # Display Data in a more visual manner
@@ -92,7 +89,6 @@ def main():
     StreamingTV = customer_raw_data['StreamingTV'][0]
     TechSupport = customer_raw_data['TechSupport'][0]
     tenure = customer_raw_data['tenure'][0]
-
 
     st.header('Customer information')
     st.header(' ')
